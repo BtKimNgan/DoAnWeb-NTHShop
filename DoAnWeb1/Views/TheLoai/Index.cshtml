@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DoAnWeb1.Models.LoaiSP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table border="1px">
+    <tr>
+        <th>Mã thể loại</th>
+        <th>Tên thể loại </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaloaiSP</td>
+            <td>@item.TenloaiSP</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaloaiSP }) |
+                @Html.ActionLink("Detail", "Detail", new { id = item.MaloaiSP }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaloaiSP })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create", "Theloai")

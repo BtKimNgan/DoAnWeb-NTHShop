@@ -381,7 +381,7 @@ namespace DoAnWeb1.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaHD
 		{
 			get
@@ -871,7 +871,7 @@ namespace DoAnWeb1.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaloaiSP", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaloaiSP", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaloaiSP
 		{
 			get
@@ -967,7 +967,7 @@ namespace DoAnWeb1.Models
 		
 		private string _TenSP;
 		
-		private System.Nullable<int> _Dongia;
+		private System.Nullable<decimal> _Dongia;
 		
 		private System.Nullable<int> _MaloaiSP;
 		
@@ -989,7 +989,7 @@ namespace DoAnWeb1.Models
     partial void OnMaSPChanged();
     partial void OnTenSPChanging(string value);
     partial void OnTenSPChanged();
-    partial void OnDongiaChanging(System.Nullable<int> value);
+    partial void OnDongiaChanging(System.Nullable<decimal> value);
     partial void OnDongiaChanged();
     partial void OnMaloaiSPChanging(System.Nullable<int> value);
     partial void OnMaloaiSPChanged();
@@ -1048,8 +1048,8 @@ namespace DoAnWeb1.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dongia", DbType="Int")]
-		public System.Nullable<int> Dongia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dongia", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Dongia
 		{
 			get
 			{

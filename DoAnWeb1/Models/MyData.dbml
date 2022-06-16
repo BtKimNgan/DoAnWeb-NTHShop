@@ -12,7 +12,7 @@
   </Table>
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
-      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MaKH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NgaylapHD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
@@ -37,7 +37,7 @@
   </Table>
   <Table Name="dbo.LoaiSP" Member="LoaiSPs">
     <Type Name="LoaiSP">
-      <Column Name="MaloaiSP" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaloaiSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenloaiSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="LoaiSP_SanPham" Member="SanPhams" ThisKey="MaloaiSP" OtherKey="MaloaiSP" Type="SanPham" />
     </Type>
@@ -46,7 +46,7 @@
     <Type Name="SanPham">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Dongia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="MaloaiSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HinhSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />

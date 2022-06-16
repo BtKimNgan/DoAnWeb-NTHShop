@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DoAnWeb1.Models.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin san pham</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th> Mã sản</th>
+        <th> Tên sản phẩm</th>
+        <th> Hình</th>
+        <th> Giá bán</th>
+        <th> Ngày cập nhật</th>
+        <th> Số lượng tồn </th>
+        <th> </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.MaloaiSP)</td>
+            <td> @Html.DisplayFor(modelItem => item.TenSP)</td>
+            <td>
+                <img src="@item.HinhSP" width="250px" alt=" hinh thumbnail" />
+            </td>
+            <td> @Html.DisplayFor(modelItem => item.Dongia)</td>
+            <td> @Html.DisplayFor(modelItem => item.Ngaycapnhat)</td>
+            <td> @Html.DisplayFor(modelItem => item.Soluong)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSP })|
+                @Html.ActionLink("Detail", "Detail", new { id = item.MaSP })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })|
+
+            </td>
+        </tr>
+    }
+
+</table>
