@@ -19,8 +19,8 @@ namespace DoAnWeb1.Controllers
         }
         public ActionResult Detail(int id)
         {
-            var D_sanpham = data.SanPhams.Where(m => m.MaSP == id).First();
-            return View(D_sanpham);
+            //var D_sanpham = data.SanPhams.Where(m => m.MaSP == id).First();
+            return View(/*D_sanpham*/);
         }
         public ActionResult Create()
         {
