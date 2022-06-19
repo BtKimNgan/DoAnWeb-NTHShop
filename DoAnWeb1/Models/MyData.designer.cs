@@ -33,12 +33,12 @@ namespace DoAnWeb1.Models
     partial void InsertCTHD(CTHD instance);
     partial void UpdateCTHD(CTHD instance);
     partial void DeleteCTHD(CTHD instance);
-    partial void InsertHoaDon(HoaDon instance);
-    partial void UpdateHoaDon(HoaDon instance);
-    partial void DeleteHoaDon(HoaDon instance);
-    partial void InsertKhachHang(KhachHang instance);
-    partial void UpdateKhachHang(KhachHang instance);
-    partial void DeleteKhachHang(KhachHang instance);
+    partial void InsertHoaDon(Hoadon instance);
+    partial void UpdateHoaDon(Hoadon instance);
+    partial void DeleteHoaDon(Hoadon instance);
+    partial void InsertKhachHang(Khachhang instance);
+    partial void UpdateKhachHang(Khachhang instance);
+    partial void DeleteKhachHang(Khachhang instance);
     partial void InsertLoaiSP(LoaiSP instance);
     partial void UpdateLoaiSP(LoaiSP instance);
     partial void DeleteLoaiSP(LoaiSP instance);
@@ -85,19 +85,19 @@ namespace DoAnWeb1.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<HoaDon> HoaDons
+		public System.Data.Linq.Table<Hoadon> HoaDons
 		{
 			get
 			{
-				return this.GetTable<HoaDon>();
+				return this.GetTable<Hoadon>();
 			}
 		}
 		
-		public System.Data.Linq.Table<KhachHang> KhachHangs
+		public System.Data.Linq.Table<Khachhang> KhachHangs
 		{
 			get
 			{
-				return this.GetTable<KhachHang>();
+				return this.GetTable<Khachhang>();
 			}
 		}
 		
@@ -132,7 +132,7 @@ namespace DoAnWeb1.Models
 		
 		private System.Nullable<decimal> _Dongiaban;
 		
-		private EntityRef<HoaDon> _HoaDon;
+		private EntityRef<Hoadon> _HoaDon;
 		
 		private EntityRef<SanPham> _SanPham;
 		
@@ -152,7 +152,7 @@ namespace DoAnWeb1.Models
 		
 		public CTHD()
 		{
-			this._HoaDon = default(EntityRef<HoaDon>);
+			this._HoaDon = default(EntityRef<Hoadon>);
 			this._SanPham = default(EntityRef<SanPham>);
 			OnCreated();
 		}
@@ -246,7 +246,7 @@ namespace DoAnWeb1.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HoaDon_CTHD", Storage="_HoaDon", ThisKey="MaHD", OtherKey="MaHD", IsForeignKey=true)]
-		public HoaDon HoaDon
+		public Hoadon HoaDon
 		{
 			get
 			{
@@ -254,7 +254,7 @@ namespace DoAnWeb1.Models
 			}
 			set
 			{
-				HoaDon previousValue = this._HoaDon.Entity;
+				Hoadon previousValue = this._HoaDon.Entity;
 				if (((previousValue != value) 
 							|| (this._HoaDon.HasLoadedOrAssignedValue == false)))
 				{
@@ -335,7 +335,7 @@ namespace DoAnWeb1.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HoaDon")]
-	public partial class HoaDon : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Hoadon : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -354,7 +354,7 @@ namespace DoAnWeb1.Models
 		
 		private EntitySet<CTHD> _CTHDs;
 		
-		private EntityRef<KhachHang> _KhachHang;
+		private EntityRef<Khachhang> _KhachHang;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -374,10 +374,10 @@ namespace DoAnWeb1.Models
     partial void OnThanhtoanChanged();
     #endregion
 		
-		public HoaDon()
+		public Hoadon()
 		{
 			this._CTHDs = new EntitySet<CTHD>(new Action<CTHD>(this.attach_CTHDs), new Action<CTHD>(this.detach_CTHDs));
-			this._KhachHang = default(EntityRef<KhachHang>);
+			this._KhachHang = default(EntityRef<Khachhang>);
 			OnCreated();
 		}
 		
@@ -519,7 +519,7 @@ namespace DoAnWeb1.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDon", Storage="_KhachHang", ThisKey="MaKH", OtherKey="MaKH", IsForeignKey=true)]
-		public KhachHang KhachHang
+		public Khachhang KhachHang
 		{
 			get
 			{
@@ -527,7 +527,7 @@ namespace DoAnWeb1.Models
 			}
 			set
 			{
-				KhachHang previousValue = this._KhachHang.Entity;
+				Khachhang previousValue = this._KhachHang.Entity;
 				if (((previousValue != value) 
 							|| (this._KhachHang.HasLoadedOrAssignedValue == false)))
 				{
@@ -586,7 +586,7 @@ namespace DoAnWeb1.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhachHang")]
-	public partial class KhachHang : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Khachhang : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -607,7 +607,7 @@ namespace DoAnWeb1.Models
 		
 		private System.Nullable<System.DateTime> _Ngaysinh;
 		
-		private EntitySet<HoaDon> _HoaDons;
+		private EntitySet<Hoadon> _HoaDons;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -631,9 +631,9 @@ namespace DoAnWeb1.Models
     partial void OnNgaysinhChanged();
     #endregion
 		
-		public KhachHang()
+		public Khachhang()
 		{
-			this._HoaDons = new EntitySet<HoaDon>(new Action<HoaDon>(this.attach_HoaDons), new Action<HoaDon>(this.detach_HoaDons));
+			this._HoaDons = new EntitySet<Hoadon>(new Action<Hoadon>(this.attach_HoaDons), new Action<Hoadon>(this.detach_HoaDons));
 			OnCreated();
 		}
 		
@@ -798,7 +798,7 @@ namespace DoAnWeb1.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_HoaDon", Storage="_HoaDons", ThisKey="MaKH", OtherKey="MaKH")]
-		public EntitySet<HoaDon> HoaDons
+		public EntitySet<Hoadon> HoaDons
 		{
 			get
 			{
@@ -830,13 +830,13 @@ namespace DoAnWeb1.Models
 			}
 		}
 		
-		private void attach_HoaDons(HoaDon entity)
+		private void attach_HoaDons(Hoadon entity)
 		{
 			this.SendPropertyChanging();
 			entity.KhachHang = this;
 		}
 		
-		private void detach_HoaDons(HoaDon entity)
+		private void detach_HoaDons(Hoadon entity)
 		{
 			this.SendPropertyChanging();
 			entity.KhachHang = null;

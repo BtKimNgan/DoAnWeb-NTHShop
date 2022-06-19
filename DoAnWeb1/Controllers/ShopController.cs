@@ -13,14 +13,14 @@ namespace DoAnWeb1.Controllers
         MyDataDataContext data = new MyDataDataContext();
         public ActionResult Index()
         {
-            var all_sanpham = from tt in data.SanPhams select tt;
-            return View(all_sanpham);
+            var listsanpham = from tt in data.SanPhams select tt;
+            return View(listsanpham);
 
         }
         public ActionResult Detail(int id)
         {
-            //var D_sanpham = data.SanPhams.Where(m => m.MaSP == id).First();
-            return View(/*D_sanpham*/);
+            var D_sanpham = data.SanPhams.Where(m => m.MaSP == id).First();
+            return View(D_sanpham);
         }
         public ActionResult Create()
         {
