@@ -12,6 +12,7 @@ namespace DoAnWeb1.Models
         public string tensanpham { get; set; }
 
         public string hinh { get; set; }
+        public string chitietsp { get; set; }
         public decimal dongian { get; set; }
         public int soluong { get; set; }
     }
