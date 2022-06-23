@@ -1,0 +1,65 @@
+﻿@model DoAnWeb.Models.LoaiSP
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style type="text/css">
+        h1, h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+    <h3>Chi tiet loai san pham</h3>
+    <hr />
+    <div class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenloaiSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenloaiSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Dongia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dongia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hinh)
+            </dd>
+            <dd>
+                <img src="~/assets/img/@Model.Hinh" width="285" height="347" alt="hinh" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ngaycapnhat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ngaycapnhat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Soluong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Soluong)
+            </dd>
+
+        </dl>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaloaiSP }) |
+    @Html.ActionLink("Back to List", "ListSanPham")
+</p>

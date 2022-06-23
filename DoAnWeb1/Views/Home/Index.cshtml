@@ -83,11 +83,12 @@
         </div>
     </div>
     <div class="row">
-        @foreach (var item in Model.all_sanpham)
+        @foreach (var item in Model.all_Category)
         {
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="~/assets/img/@item.HinhSP" class="rounded-circle img-fluid border"></a>
-                <h5 href="#" class="text-center mt-3 mb-3">@item.TenSP</h5>
+                @*<a href="#"><img src="~/assets/img/@item.Hinh" class="rounded-circle img-fluid border"></a>*@
+                <h5 href="#" class="text-center mt-3 mb-3">@item.TenloaiSP</h5>
+                <h5 href="#" class="text-center mt-3 mb-3">@item.MaloaiSP</h5>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
         }       

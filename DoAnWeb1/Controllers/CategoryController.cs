@@ -13,7 +13,7 @@ namespace DoAnWeb1.Controllers
         MyDataDataContext data = new MyDataDataContext();
         public ActionResult Index()
         {
-            var all_Category = (from ss in data.LoaiSPs select ss).ToList();
+            var all_Category = from ss in data.LoaiSPs select ss;
             return View(all_Category);
         }
 

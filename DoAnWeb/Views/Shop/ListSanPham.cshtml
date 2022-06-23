@@ -1,0 +1,145 @@
+﻿@model PagedList.IPagedList<DoAnWeb.Models.SanPham>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "ListSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Start Content -->
+<div class="container py-5">
+    <div class="row">
+        @*danh mục*@
+        <div class="col-lg-3">
+            <h1 class="h2 pb-4">Categories</h1>
+            <div class="col-lg-3"></div>
+            <ul class="list-unstyled templatemo-accordion">
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Balo
+                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+
+                </li>
+                <li class="pb-3">
+                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                        Dụng cụ học tập
+                        <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+            @*load dữ liệu từ csdl lên trang shop index*@
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="~/assets/img/@item.HinhSP">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    @*icon delete-detail-edit-giohang*@
+                                    <ul class="list-unstyled">
+                                        @*<li><a class="btn btn-success text-white" href="~/Shop/Delete"><i class="fa fa-trash-alt"></i></a></li>*@
+                                        <li><a class="btn btn-success text-white mt-2" href="@Url.Action("Detail", "Shop", new {id = item.MaSP})"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none"><i>Tên sản phẩm:</i> <b>@item.TenSP</b></a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li> @item.Chitietsp <br /> </li>
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                               
+                                <p class="text-center mb-0"> <b> $@item.Dongia</b> </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+            <div div="row">             
+                
+                    @*phan trang*@
+                    <div>
+                        <div>
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /@Model.PageCount
+                        </div>
+                        <div class="MenuTrang">
+                            @Html.PagedListPager(Model, page => Url.Action("ListSanPham", new { page=page }))
+                        </div>
+                    </div>
+                    <style>
+                        .MenuTrang li {
+                            display: space-evenly;
+                            justify-content: space-evenly;
+                        }
+                    </style>
+                    <style type="text/css">
+                        #mau-nut a {
+                            clear: both;
+                            background-color: orange;
+                            color: snow;
+                        }
+
+                            #mau-nut a:hover {
+                                background-color: darkcyan;
+                                color: snow;
+                            }
+                    </style>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Content -->
+
+@*<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+
+                $(this).append(' <a href="javascript:void(0);" class="read-more">đọc tiếp...</a>');
+
+                $(this).append('<span class="more-text">' + removedStr + '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+    });
+</script>
+<style>
+    .show-read-more .more-text {
+        display: none;
+    }
+</style>*@

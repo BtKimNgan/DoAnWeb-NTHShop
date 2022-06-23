@@ -188,14 +188,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\CTHoaDon.cs" />
-    <Compile Include="Models\DSSanPham.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\HomePage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\khachhang.cs" />
-    <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
@@ -401,12 +400,12 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
     <Content Include="Views\Shop\Create.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
