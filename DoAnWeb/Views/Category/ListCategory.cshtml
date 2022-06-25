@@ -19,9 +19,9 @@
                         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             @*icon delete-detail-edit-giohang*@
                             <ul class="list-unstyled">
-                                <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-edit"></i></a></li>
+                                <li><a class="btn btn-success text-white" href="@Url.Action("Edit", "Category", new {id = item.MaloaiSP})"><i class="far fa-edit"></i></a></li>
                                 <li><a class="btn btn-success text-white mt-2" href="@Url.Action("Detail", "Category", new {id = item.MaloaiSP})"><i class="far fa-eye"></i></a></li>
-                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-trash-alt "></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="@Url.Action("Delete", "Category", new {id = item.MaloaiSP})"><i class="far fa-trash-alt "></i></a></li>
                             </ul>
                         </div>
                     </div>

@@ -43,7 +43,7 @@
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                                 Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                                <input type="hidden" name="product-quanity" id="idsoluong" value="1">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
                                             <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
@@ -54,7 +54,7 @@
                                 <div class="row pb-3">
                                     
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                        <button type="submit" class="btn btn-success btn-lg" href="@Url.Action("ThemGioHang", "GioHang",new { id =Model.MaSP, @strURL = Request.Url.ToString() })" id="ThemGioHang" name="submit" value="addtocard">Add To Cart</button>
                                     </div>
                                 </div>
                             </form>

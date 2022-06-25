@@ -56,39 +56,9 @@ namespace DoAnWeb.Controllers
             }
             return this.Create();
         }
-        public ActionResult Edit(int id)
-        {
-            var E_sanpham = data.SanPhams.First(m => m.MaSP == id);
-            return View(E_sanpham);
-        }
+        
 
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            var E_sanpham = data.SanPhams.First(m => m.MaSP == id);
-            var E_tensanpham = collection["tensanpham"];
-            var E_hinh = collection["hinh"];
-            var E_dongia = Convert.ToDecimal(collection["dongia"]);
-            var E_ngaycapnhat = Convert.ToDateTime(collection["ngaycatnhat"]);
-            var E_soluong = Convert.ToInt32(collection["soluong"]);
-            E_sanpham.MaSP = id;
-            if (string.IsNullOrEmpty(E_tensanpham))
-            {
-                ViewData["Error"] = "Don't empty!";
-            }
-            else
-            {
-                E_sanpham.TenSP = E_tensanpham;
-                E_sanpham.HinhSP = E_hinh;
-                E_sanpham.Dongia = E_dongia;
-                E_sanpham.Ngaycapnhat = E_ngaycapnhat;
-                E_sanpham.Soluong = E_soluong;
-                UpdateModel(E_sanpham);
-                data.SubmitChanges();
-                return RedirectToAction("ListSach");
-            }
-            return this.Edit(id);
-        }
+        
 
 
     }

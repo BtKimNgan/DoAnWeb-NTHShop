@@ -177,6 +177,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -184,6 +185,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\HomePage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -230,7 +232,13 @@
     <Content Include="assets\img\hinhcuctay.jpg" />
     <Content Include="assets\img\hinhdungbut.jpg" />
     <Content Include="assets\img\hinhgom.jpg" />
+    <Content Include="assets\img\hinhhoa.jpg" />
     <Content Include="assets\img\hinhhopbut.jpg" />
+    <Content Include="assets\img\hinhngan.jpg" />
+    <Content Include="assets\img\hinhngan2.jpg" />
+    <Content Include="assets\img\hinhtan.jpg" />
+    <Content Include="assets\img\hinhtan1.jpg" />
+    <Content Include="assets\img\hinhtan2.jpg" />
     <Content Include="assets\img\hinhtrung.jpg" />
     <Content Include="assets\img\hinhvit.jpg" />
     <Content Include="assets\img\hinhxoakeo.jpg" />
@@ -354,6 +362,8 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
