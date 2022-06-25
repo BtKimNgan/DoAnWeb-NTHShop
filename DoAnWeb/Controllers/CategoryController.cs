@@ -80,6 +80,8 @@ namespace DoAnWeb.Controllers
             return this.Edit(id);
         }
 
+
+        //lôi delete/edit /create
         //[HttpPost]
         //public ActionResult Edit(int id, FormCollection collection)
         //{
