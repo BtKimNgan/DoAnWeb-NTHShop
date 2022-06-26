@@ -4,9 +4,6 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<body>
-
     <!-- Open Content -->
     <section class="bg-light">
         <div class="container pb-5">
@@ -52,9 +49,8 @@
                                     </div>
                                 </div>
                                 <div class="row pb-3">
-                                    
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" href="@Url.Action("ThemGioHang", "GioHang",new { id =Model.MaSP, @strURL = Request.Url.ToString() })" id="ThemGioHang" name="submit" value="addtocard">Add To Cart</button>
+                                        <button type="submit" class="btn btn-success btn-lg" href="@Url.Action("ThemGioHang","GioHang", new {id = Model.MaSP, @strURL =Request.Url.ToString()})">Add To Cart</button>
                                     </div>
                                 </div>
                             </form>
@@ -67,5 +63,5 @@
     </section>
     
     
-</body>
+
    

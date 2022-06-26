@@ -31,7 +31,7 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.masanpham)</td>
             <td>@Html.DisplayFor(modelItem => item.tensanpham)</td>
-            <td> <img src="@item.hinhsp" width="180" /> </td>
+            <td> <img src="~/assets/img/@item.hinhsp" width="180" /> </td>
             @using (Html.BeginForm("CapnhapGiohang", "GioHang", new { @id = item.masanpham }))
             {
                 <td> @string.Format("{0:0,0}", item.dongia) VNĐ </td>
@@ -65,60 +65,5 @@
     </tr>
 </table>
 
-@*<h2>GioHang</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.masanpham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tensanpham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.hinhsp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.dongia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.iSoLuong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.dThanhTien)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.masanpham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tensanpham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.hinhsp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dongia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.iSoLuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dThanhTien)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
-
-    </table>*@
+   

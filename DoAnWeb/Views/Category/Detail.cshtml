@@ -4,13 +4,7 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <style type="text/css">
-        h1, h3 {
-            text-align: center;
-        }
-    </style>
-</head>
+<div class="container p-5 my-5 border">
     <h3>Chi tiet loai san pham</h3>
     <hr />
     <div class="row">
@@ -59,7 +53,8 @@
 
         </dl>
     </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaloaiSP }) |
-    @Html.ActionLink("Back to List", "ListSanPham")
-</p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaloaiSP }) |
+        @Html.ActionLink("Back to List", "ListCategory")
+    </p>
+    </div>

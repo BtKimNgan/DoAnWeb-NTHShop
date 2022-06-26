@@ -66,12 +66,12 @@ namespace DoAnWeb.Controllers
             else
             {
                 E_loaisp.MaloaiSP = E_maloailt;
-                E_loaisp.TenloaiSP= E_tenslaptop;
+                E_loaisp.TenloaiSP = E_tenslaptop;
                 E_loaisp.Hinh = E_hinh;
                 E_loaisp.Dongia = E_giaban;
                 E_loaisp.Ngaycapnhat = E_ngaycapnhat;
                 E_loaisp.Soluong = E_soluongton;
-                
+
 
                 UpdateModel(E_loaisp);
                 data.SubmitChanges();
@@ -114,6 +114,7 @@ namespace DoAnWeb.Controllers
             data.SubmitChanges();
             return RedirectToAction("ListCategory");
         }
+
 
     }
 }
