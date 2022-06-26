@@ -12,9 +12,11 @@ using DoAnWeb.Models;
 
 namespace DoAnWeb.Controllers
 {
+    
     [Authorize]
     public class AccountController : Controller
     {
+        MyDataDataContext data = new MyDataDataContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -153,6 +155,7 @@ namespace DoAnWeb.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                //KhachHang kh = data.KhachHangs.SingleOrDefault(n => n.Tendangnhap == tendangnhap && n.Matkhau == matkhau);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

@@ -118,11 +118,11 @@ namespace DoAnWeb.Controllers
         {
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
 
-                return RedirectToAction("Register", "Account");
+                return RedirectToAction("DangNhap", "Nguoidung");
 
             if (Session["Giohang"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ListSanPham", "Shop");
             }
             List<Giohang> lstGiohang = LayGioHang();
             ViewBag.Tongsoluong = TongSoLuong();

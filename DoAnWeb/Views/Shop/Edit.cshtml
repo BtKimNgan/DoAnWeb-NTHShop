@@ -44,6 +44,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HinhSP, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
+            <strong>Hình</strong>
             @Html.EditorFor(model => model.HinhSP, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.HinhSP, "", new { @class = "text-danger" })
             <input type="file" name="fileUpload" id="fileUpload" accept="image/*"
@@ -55,35 +56,35 @@
     @section upload
      {
         <script>
-         $(function () {
-         $('#btnUpload').click(function () {
-          $('#fileUpload').trigger('click');
-         });
-         });
-        $('#fileUpload').change(function () {
-        if (window.FormData !== undefined) {
-            var fileUpload = $('#fileUpload').get(0);
-            var files = fileUpload.files;
-            var formData = new FormData();
-            formData.append('file', files[0]);
-            $.ajax(
-                {
-                    type: 'POST',
-                    url: '/Sach/ProcessUpload',
-                    contentType: false,
-                    processData: false,
-                    data: formData,
-                    success: function (urlImage) {
-
-                        $('#pictureUpload').attr('src', urlImage);
-                        $('#hinh').val(urlImage);
-                    },
-                    error: function (err) {
-                        alert('Error ', err.statusText);
-                    }
+            $(function () {
+                $('#btnUpload').click(function () {
+                    $('#fileUpload').trigger('click');
                 });
-        }
-       });
+            });
+            $('#fileUpload').change(function () {
+                if (window.FormData !== undefined) {
+                    var fileUpload = $('#fileUpload').get(0);
+                    var files = fileUpload.files;
+                    var formData = new FormData();
+                    formData.append('file', files[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/Shop/ProcessUpload',
+                            contentType: false,
+                            processData: false,
+                            data: formData,
+                            success: function (urlImage) {
+
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#HinhSP').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Error ', err.statusText);
+                            }
+                        });
+                }
+            });
         </script>
     }
     <div class="form-group">

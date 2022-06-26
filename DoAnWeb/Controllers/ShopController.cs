@@ -26,7 +26,7 @@ namespace DoAnWeb.Controllers
             var all_sanpham= data.SanPhams.Where(m => m.MaSP == id).First();
             return View(all_sanpham);
         }
-        
+
         public ActionResult Create()
         {
             return View();
@@ -34,11 +34,11 @@ namespace DoAnWeb.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection, SanPham s)
         {
-            var E_tensanpham = collection["tenSanPham"];
-            var E_hinhsp = collection["hinhsp"];
+            var E_tensanpham = collection["tensanpham"];
+            var E_hinh = collection["hinh"];
             var E_dongia = Convert.ToDecimal(collection["dongia"]);
             var E_ngaycapnhat = Convert.ToDateTime(collection["ngaycapnhat"]);
-            var E_soluong = Convert.ToInt32(collection["soluong"]);
+            var E_soluong = Convert.ToInt32(collection["soluongton"]);
             if (string.IsNullOrEmpty(E_tensanpham))
             {
                 ViewData["Error"] = "Don't empty!";
@@ -46,7 +46,7 @@ namespace DoAnWeb.Controllers
             else
             {
                 s.TenSP = E_tensanpham.ToString();
-                s.HinhSP = E_hinhsp.ToString();
+                s.HinhSP = E_hinh.ToString();
                 s.Dongia = E_dongia;
                 s.Ngaycapnhat = E_ngaycapnhat;
                 s.Soluong = E_soluong;
@@ -84,7 +84,7 @@ namespace DoAnWeb.Controllers
                 E_sanpham.Soluong = E_soluongton;
                 UpdateModel(E_sanpham);
                 data.SubmitChanges();
-                return RedirectToAction("ListSanPham");
+                return RedirectToAction("ListSanPham","Shop");
             }
             return this.Edit(id);
         }
@@ -101,6 +101,7 @@ namespace DoAnWeb.Controllers
             data.SubmitChanges();
             return RedirectToAction("ListSanPham");
         }
+        [HttpPost]
         public string ProcessUpload(HttpPostedFileBase file)
         {
             if (file == null)

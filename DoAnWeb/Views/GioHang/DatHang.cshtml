@@ -4,110 +4,101 @@
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container p-5 my-5 border">
+    <h2>Đặt Hàng</h2>
 
-<h2>Đặt Hàng</h2>
-<p>
-    @Html.ActionLink("Thêm mới", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.malaptop)*@
-            <th>Mã LapTop</th>
-
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tensanpham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hinhsp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dongia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iSoLuong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dThanhTien)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.masanpham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tensanpham)
-            </td>
-            <td>
-                <img src="~/assets/img/@item.hinhsp" width="180px" height="111px" alt="hinh" />
-            </td>
-            <td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dongia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.iSoLuong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dThanhTien)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.masanpham }) |
-                @Html.ActionLink("Detail", "Detail", new { id = item.masanpham }) |
-                @Html.ActionLink("Delete", "XoaGioHang", new { id = item.masanpham })
-            </td>
+            <th>Mã sản phẩm</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.tensanpham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hinhsp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dongia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iSoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dThanhTien)
+            </th>
+            <th></th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.masanpham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tensanpham)
+                </td>
+                <td>
+                    <img src="~/assets/img/@item.hinhsp" width="180px" height="111px" />
+                </td>
+                <td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dongia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iSoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dThanhTien)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.masanpham }) |
+                    @Html.ActionLink("Detail", "Detail", new { id = item.masanpham }) |
+                    @Html.ActionLink("Delete", "XoaGioHang", new { id = item.masanpham })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @using DoAnWeb.Models;
+    <h2 style="text-align:center"> Thông tin đặt hàng</h2>
     @{
-        ViewBag.Title = "XacnhanDonhang";
-        Layout = "~/Views/Shared/_Layout.cshtml";
+        KhachHang kh = (KhachHang)Session["TaiKhoan"];
     }
+    <table align="center">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr>
+                <td>Họ tên khách hàng:  </td>
+                <td> @kh.TenKH </td>
+            </tr>
+            <tr>
+                <td>Địa chỉ: </td>
+                <td>@kh.Diachi</td>
+            </tr>
 
+            <tr>
+                <td>Điện thoại: </td>
+                <td>@kh.SDT</td>
+            </tr>
+            <tr>
+                <td>Ngày đặt: </td>
+                <td>@DateTime.Now.ToLongDateString()</td>
+            </tr>
+            <tr>
+                <td>Ngày giao hàng: </td>
+                <td><input type="date" name="NgayGiao" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <br />
+                <td><input type="submit" value="Đồng ý đặt hàng" /></td>
+            </tr>
 
-</table>
-@using DoAnWeb.Models;
-
-@{
-    KhachHang kh = (KhachHang)Session["TaiKhoan"];
-}
-<table>
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
-        <tr>
-            <td>Họ tên khách hàng:  </td>
-            <td> @kh.TenKH </td>
-        </tr>
-        <tr>
-            <td>Địa chỉ: </td>
-            <td>@kh.Diachi</td>
-        </tr>
-
-        <tr>
-            <td>Điện thoại: </td>
-            <td>@kh.SDT</td>
-        </tr>
-        <tr>
-            <td>Ngày đặt: </td>
-            <td>@DateTime.Now.ToLongDateString()</td>
-        </tr>
-        <tr>
-            <td>Ngày giao hàng: </td>
-            <td><input type="date" name="NgayGiao" /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <br />
-            <td><input type="submit" value="Đồng ý đặt hàng" /></td>
-        </tr>
-        <br />
-    }
-</table>
-<br />
-<br />
-<br />
+        }
+    </table>
+    <br />
+    <br />
+    <br />
+    </div>
